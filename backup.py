@@ -5,11 +5,11 @@ from google.cloud import storage
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir_path, 'google.json')
-
+COLLECTIONS_FILE = os.path.join(dir_path, 'collections.json')
 BUCKET_NAME = 'brightid-backups'
 BACKUP_CMD = ' && '.join([
     'rm /tmp/dump -rf',
-    'arangodump --compress-output false --collection variables --collection usersInGroups --collection usersInNewGroups --collection groups --collection sponsorships --collection newGroups --collection operationsHashes --collection users --collection variables --collection connections --server.password "" --output-directory "/tmp/dump"',
+    'arangodump --compress-output false --server.password "" --output-directory "/tmp/dump" --maskings {}'.format(COLLECTIONS_FILE),
     'cd /tmp',
     'tar -zcvf brightid.tar.gz dump'
 ])

@@ -1,0 +1,35 @@
+{
+  "users": {
+    "type": "full"
+  },
+  "connections": {
+    "type": "full"
+  },
+  "groups": {
+    "type": "full"
+  },
+  "newGroups": {
+    "type": "full"
+  },
+  "usersInGroups": {
+    "type": "full"
+  },
+  "usersInNewGroups": {
+    "type": "full"
+  },
+  "variables": {
+    "type": "full"
+  },
+  "sponsorships": {
+    "type": "full"
+  },
+  "operationsHashes": {
+    "type": "full"
+  },
+  "operations": {
+    "type": "structure"
+  },
+  "contexts": {
+    "type": "structure"
+  }
+}
