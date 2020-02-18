@@ -26,6 +26,9 @@
   "operationsHashes": {
     "type": "full"
   },
+  "invitations": {
+    "type": "full"
+  },
   "operations": {
     "type": "structure"
   },
