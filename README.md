@@ -19,15 +19,15 @@ There are backup files avilable for following times:
 
 ### Prerequisites:
 
-- python
-- pip
+- python3
+- pip3
 - arangodump
 
 * You can find out how to install `arangodump` from arango client tools on your os from [here](https://www.arangodb.com/download-major/).
 
 ### Install
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ### Run
 
@@ -37,5 +37,5 @@ There are backup files avilable for following times:
 
 ```
 # m h  dom mon dow   command
-0 1 * * * python /path/to/script/backup.py
+0 1 * * * python3 /path/to/script/backup.py
 ```
