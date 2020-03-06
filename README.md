@@ -13,6 +13,7 @@ Available backup files can be found:
 
 There are backup files avilable for following times:
 
+- one file per hour for a day
 - one file per day for a week
 - one file per week for a month
 - one file per month forever
@@ -33,9 +34,9 @@ There are backup files avilable for following times:
 
 - Place your google credentials json file beside the `backup.py` with the `google.json` as name.
 
-- Add a cron job to run the script everyday.
+- Add a cron job to run the script every hour.
 
 ```
 # m h  dom mon dow   command
-0 1 * * * python3 /path/to/script/backup.py
+0 * * * * python3 /path/to/script/backup.py
 ```
