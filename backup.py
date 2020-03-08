@@ -40,23 +40,23 @@ def delete_extra_files():
     blobs = {blob.name: blob for blob in blobs if blob.name.startswith('brightid_') and blob.name.count('_') == 2}
     fnames = blobs.keys()
     today = date.today()
-
+    now = time.time()
     for fname in fnames:
         d = get_date(fname)
+        t = get_time(fname)
         days = (today - d).days
-        tm_hour = get_time(fname).tm_hour
         keep = False
         # keep one file per hour for a day
-        if days == 0:
+        if now - time.mktime(t) < 24*60*60:
             keep = True
         # keep one file per day for a week
-        elif days < 7 and tm_hour == 0:
+        elif days < 7 and t.tm_hour == 0:
             keep = True
         # keep one file per week for a month
-        elif days < 30 and d.weekday() == 1 and tm_hour == 0:
+        elif days < 30 and d.weekday() == 1 and t.tm_hour == 0:
             keep = True
         # keep one file per month forever
-        elif d.day == 1 and tm_hour == 0:
+        elif d.day == 1 and t.tm_hour == 0:
             keep = True
         if not keep:
             print('delete {} from cloud'.format(fname))
