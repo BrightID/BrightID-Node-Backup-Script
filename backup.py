@@ -83,7 +83,7 @@ def load_json():
     ret = {'nodes': [], 'edges': []}
     buf = {}
     for u in users:
-        users[u] = {'rank': users[u]['score'], 'id': u , 'groups': []}
+        users[u] = {'rank': users[u]['score'], 'id': u , 'groups': [], 'verifications': users[u]['verifications']}
         ret['nodes'].append(users[u])
     for user_group in user_groups.values():
         u = user_group['_from'].replace('users/', '')
