@@ -8,13 +8,7 @@
   "groups": {
     "type": "full"
   },
-  "newGroups": {
-    "type": "full"
-  },
   "usersInGroups": {
-    "type": "full"
-  },
-  "usersInNewGroups": {
     "type": "full"
   },
   "variables": {
