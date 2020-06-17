@@ -80,7 +80,7 @@ def load_json():
     users = records('users')
     groups = records('groups')
     connections = records('connections')
-    ret = {'nodes': [], 'edges': []}
+    ret = {'nodes': [], 'edges': [], 'groups': []}
     buf = {}
     for u in users:
         users[u] = {'rank': users[u]['score'], 'id': u , 'groups': [], 'verifications': users[u].get('verifications', [])}
@@ -93,6 +93,8 @@ def load_json():
             users[u]['node_type'] = 'Seed'
     for c in connections.values():
         ret['edges'].append([c['_from'].replace('users/', ''), c['_to'].replace('users/', '')])
+    for g in groups:
+        ret['groups'].append({'rank': groups[g]['score'], 'seed': groups[g].get('seed', False), 'region': groups[g].get('region', None)})
     return json.dumps(ret)
 
 
