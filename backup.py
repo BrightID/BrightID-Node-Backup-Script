@@ -94,7 +94,7 @@ def load_json():
     for c in connections.values():
         ret['edges'].append([c['_from'].replace('users/', ''), c['_to'].replace('users/', '')])
     for g in groups:
-        ret['groups'].append({'rank': groups[g]['score'], 'seed': groups[g].get('seed', False), 'region': groups[g].get('region', None)})
+        ret['groups'].append({'id': g, 'rank': groups[g]['score'], 'seed': groups[g].get('seed', False), 'region': groups[g].get('region', None)})
     return json.dumps(ret)
 
 
