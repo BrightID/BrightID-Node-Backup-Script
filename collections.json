@@ -22,11 +22,5 @@
   },
   "invitations": {
     "type": "full"
-  },
-  "operations": {
-    "type": "structure"
-  },
-  "contexts": {
-    "type": "structure"
   }
 }
