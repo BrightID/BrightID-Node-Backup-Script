@@ -22,5 +22,8 @@
   },
   "invitations": {
     "type": "full"
+  },
+  "verifications": {
+    "type": "full"
   }
 }
