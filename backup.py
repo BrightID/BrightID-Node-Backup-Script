@@ -82,14 +82,17 @@ def load_json():
     connections = records('connections')
     verifications = records('verifications')
     ret = {'nodes': [], 'edges': [], 'groups': []}
-    buf = {}
     for u in users:
         users[u] = {'rank': users[u]['score'], 'id': u , 'groups': [], 'verifications': []}
         ret['nodes'].append(users[u])
     for v in verifications.values():
-        u = v['user'].replace('users/', '')
+        u = v['user']
         if u in users:
-            users[u]['verifications'].append(v['name'])
+            del v['_key']
+            del v['_id']
+            del v['_rev']
+            del v['user']
+            users[u]['verifications'].append(v)
     for user_group in user_groups.values():
         u = user_group['_from'].replace('users/', '')
         g = user_group['_to'].replace('groups/', '')
