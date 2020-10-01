@@ -13,7 +13,7 @@ BACKUP_CMD = ' && '.join([
     'tar -zcvf brightid.tar.gz dump',
 ])
 
-BUCKET_NAME = 'brightid-backups'
+BUCKET_NAME = 'test-brightid-backups'
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir_path, 'google.json')
 client = storage.Client()
 bucket = client.get_bucket(BUCKET_NAME)
